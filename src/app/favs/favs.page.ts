@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ListadoPokemonService } from '../servicio/listado-pokemon.service';
 
 @Component({
   selector: 'app-favs',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./favs.page.scss'],
 })
 export class FavsPage implements OnInit {
+  arrayFav = [];
 
-  constructor() { }
+  constructor(private servicio2: ListadoPokemonService) { }
 
   ngOnInit() {
   }
 
+  ionViewWillEnter(){
+    this.arrayFav = this.servicio2.getFav();
+    console.log(this.arrayFav);
+  }
 }

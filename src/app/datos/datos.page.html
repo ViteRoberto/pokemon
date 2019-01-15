@@ -1,9 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>datos</ion-title>
+    <ion-title>{{nombrePokemon}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+    <ion-card>
+      <ion-img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{idPokemon}}.png"></ion-img>
+      <ion-card-header>
+        <ion-card-title>
+          {{nombrePokemon}}
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Altura: {{lista1?.height}}</p>
+        <p>Peso: {{lista1?.weigth}}</p>
+        <p *ngFor="let tipo of lista1?.types; let indice=index">Tipo {{indice+1}}: {{tipo.type.name}}</p>
+        <p>N° Pokedex: {{idPokemon}}</p>
+      </ion-card-content>
+    </ion-card>
 </ion-content>
