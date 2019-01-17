@@ -20,6 +20,7 @@ export class ListaPage implements OnInit {
 
   favorito(id){
     this.servicio1.setFav(id);
+    console.log(id);
   }
 
 }

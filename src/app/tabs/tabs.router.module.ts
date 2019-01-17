@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { TabsPage } from './tabs.page';
+import { DatosPage } from '../datos/datos.page';
+import { ListaPage } from '../lista/lista.page';
+import { FavsPage } from '../favs/favs.page';
 
 const routes: Routes = [
   {
@@ -9,42 +12,35 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
+        path: '',
+        redirectTo: '/tabs/(lista:lista)',
+        pathMatch: 'full'
+      },
+      {
         path: 'lista',
-        children: [
-          {
-            path: '',
-            loadChildren: '../lista/lista.module#ListaPageModule'
-          }
-        ]
+        outlet: 'lista',
+        component: ListaPage
       },
       {
         path: 'favs',
-        children: [
-          {
-            path: '',
-            loadChildren: '../favs/favs.module#FavsPageModule'
-          }
-        ]
+        outlet: 'favs',
+        component: FavsPage
       },
       {
         path: 'datos/:id/:nombre',
-        children: [
-          {
-            path: '',
-            loadChildren: '../datos/datos.module#DatosPageModule'
-          }
-        ]
+        outlet: 'lista',
+        component: DatosPage
       },
       {
-        path: '',
-        redirectTo: '/tabs/lista',
-        pathMatch: 'full'
+        path: 'datos/:id',
+        outlet: 'favs',
+        component: DatosPage
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/lista',
+    redirectTo: '/tabs/(lista:lista)',
     pathMatch: 'full'
   }
 ];

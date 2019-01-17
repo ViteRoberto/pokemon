@@ -7,7 +7,7 @@
 <ion-content padding>
   <ion-list>
     <ion-item-sliding *ngFor="let pokemon of lista1?.results; let indice=index">
-        <ion-item href="/tabs/datos/{{indice+1}}/{{pokemon.name}}">
+        <ion-item href="/tabs/(lista:datos/{{indice+1}}/{{pokemon.name}})">
           <ion-avatar slot="start">
             <ion-img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{indice+1}}.png" alt="Imagen"></ion-img>
           </ion-avatar>
