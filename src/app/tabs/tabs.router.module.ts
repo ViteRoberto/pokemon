@@ -35,6 +35,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'datos/:id',
+        children: [
+          {
+            path: '',
+            loadChildren: '../datos/datos.module#DatosPageModule'
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/lista',
         pathMatch: 'full'
